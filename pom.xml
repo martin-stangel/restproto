@@ -139,7 +139,7 @@
                         <apiSource>
                             <springmvc>false</springmvc>
                             <locations>
-                                <location>com.whitestein.restproto.server</location>
+                                <location>com.whitestein.restproto.endpoint</location>
                             </locations>
                             <info>
                                 <title>restproto</title>
@@ -173,6 +173,7 @@
                         <configuration>
                             <inputSpec>${project.basedir}/target/generated-sources/swagger.yaml</inputSpec>
                             <language>typescript-angular</language>
+                            <output>${project.build.directory}/generated-sources/typescript</output>
                             <configOptions>
                                 <sourceFolder>/target/generated-sources/typescript</sourceFolder>
                             </configOptions>
