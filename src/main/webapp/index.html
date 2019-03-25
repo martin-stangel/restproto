@@ -12,7 +12,7 @@
             	$.getJSON(url,
             		function ( data ) {
             			console.log( data );
-		            	$('<p>').html('Raw response: <code>' + JSON.stringify(data) + '</code>').appendTo('#raw');
+		            	$('<p>').html('Raw statusCode: <code>' + JSON.stringify(data) + '</code>').appendTo('#raw');
 		            	$('<p>').html('Output: ').appendTo('#result');
             			$('<p>').html('Operation: ' + data.operation).appendTo('#result');
             			$('<p>').html('<br>Left: ' + data.left).appendTo('#result');
@@ -79,7 +79,7 @@ In addition the service supports POST requests for:
 
 <p>
 The request body must be a JSON object similar to the above ("result" is of course optional). The
-response will be JSON as above.
+statusCode will be JSON as above.
 </p>
 
 </body>
