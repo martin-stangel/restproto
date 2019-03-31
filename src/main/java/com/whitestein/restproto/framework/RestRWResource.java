@@ -56,14 +56,7 @@ public interface RestRWResource<T> extends RestROResource<T> {
                     message = "Internal server error occured",
                     response = RestProblem.class)
     })
-    void update(@PathParam("id") Long id, T item);
-
-    @POST
-    @Path("/mandate/{id}")
-    @Consumes({"application/json"})
-    @Produces({"application/json"})
-    @ApiOperation(value = "Mandates single item by ID")
-    T mandate(@PathParam("id") Long id, @ApiParam() T item);
+    void update(@PathParam("id") Long id, @ApiParam("item") T item);
 
     @DELETE
     @Path("/{id}")
@@ -86,6 +79,7 @@ public interface RestRWResource<T> extends RestROResource<T> {
                     code = HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
                     message = "Internal server error occured",
                     response = RestProblem.class)
+
     })
     void delete(@PathParam("id") Long id);
 }

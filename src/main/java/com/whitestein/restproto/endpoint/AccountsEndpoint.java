@@ -2,12 +2,11 @@ package com.whitestein.restproto.endpoint;
 
 import com.whitestein.restproto.framework.CollectionDto;
 import com.whitestein.restproto.framework.RestFilter;
-import com.whitestein.restproto.framework.RestProblem;
 import com.whitestein.restproto.framework.RestRWResource;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.*;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.UriInfo;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,27 +35,19 @@ public class AccountsEndpoint implements RestRWResource<AccountDto> {
     }
 
     @Override
-    public void create(AccountDto item) {
+    public void create(@ApiParam AccountDto item) {
         ACCOUNTS.put(item.getId(), item);
     }
 
     @Override
-    public void update(Long id, AccountDto item) {
+    public void update(
+            Long id,
+            AccountDto item) {
         ACCOUNTS.put(id, item);
     }
 
     @Override
-    @POST
-    @Path("/mandate/{id}")
-    @Consumes({"application/json"})
-    @Produces({"application/json"})
-    @ApiOperation(value = "Mandates single item by ID")
-    public AccountDto mandate(Long id, AccountDto item) {
-        return null;
-    }
-
-    @Override
-    public void delete(Long id) {
+    public void delete(@ApiParam Long id) {
         ACCOUNTS.remove(id);
     }
 
